@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Referendumi 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,wdth@8..144,300..900,75..125&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --size: 20px;
+  --bg: #f6f7fc;
+  --surface: #ffffff;
+  --surface-low: #f0f2f9;
+  --surface-high: #e4e7f2;
+  --on-surface: #12131a;
+  --on-surface-variant: #43465a;
+  --outline: #747891;
+  --outline-variant: #c9ccdc;
+  --primary: #4549c9;
+  --on-primary: #ffffff;
+  --primary-container: #e1e0ff;
+  --on-primary-container: #12156e;
+  --tertiary-container: #c6efe3;
+  --on-tertiary-container: #00382d;
+  --za: #1d5fb4;
+  --za-container: #d8e6ff;
+  --on-za-container: #002f6b;
+  --proti: #b3401a;
+  --proti-container: #ffdccf;
+  --on-proti-container: #4f1500;
+  --focus: #6b2fd6;
+  --glow-1: #c9c6ff;
+  --glow-2: #bfe3ff;
+  --glow-3: #ffd9c7;
+  --shadow: 0 1px 2px rgb(20 22 60 / .06), 0 8px 24px -8px rgb(20 22 60 / .12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0c0d13;
+    --surface: #171822;
+    --surface-low: #1d1f2b;
+    --surface-high: #2a2c3b;
+    --on-surface: #f3f3fb;
+    --on-surface-variant: #c7c9dd;
+    --outline: #9093ab;
+    --outline-variant: #3f4256;
+    --primary: #bfc1ff;
+    --on-primary: #1c1f78;
+    --primary-container: #30349e;
+    --on-primary-container: #e1e0ff;
+    --tertiary-container: #0f4e41;
+    --on-tertiary-container: #c6efe3;
+    --za: #6fa6ff;
+    --za-container: #0f3366;
+    --on-za-container: #d8e6ff;
+    --proti: #ff9466;
+    --proti-container: #6a2306;
+    --on-proti-container: #ffdccf;
+    --focus: #ffd23f;
+    --glow-1: #2c2a7a;
+    --glow-2: #0d3b5e;
+    --glow-3: #4a1d0c;
+    --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 12px 32px -12px rgb(0 0 0 / .6);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0c0d13;
+  --surface: #171822;
+  --surface-low: #1d1f2b;
+  --surface-high: #2a2c3b;
+  --on-surface: #f3f3fb;
+  --on-surface-variant: #c7c9dd;
+  --outline: #9093ab;
+  --outline-variant: #3f4256;
+  --primary: #bfc1ff;
+  --on-primary: #1c1f78;
+  --primary-container: #30349e;
+  --on-primary-container: #e1e0ff;
+  --tertiary-container: #0f4e41;
+  --on-tertiary-container: #c6efe3;
+  --za: #6fa6ff;
+  --za-container: #0f3366;
+  --on-za-container: #d8e6ff;
+  --proti: #ff9466;
+  --proti-container: #6a2306;
+  --on-proti-container: #ffdccf;
+  --focus: #ffd23f;
+  --glow-1: #2c2a7a;
+  --glow-2: #0d3b5e;
+  --glow-3: #4a1d0c;
+  --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 12px 32px -12px rgb(0 0 0 / .6);
+}
+* { box-sizing: border-box; }
+html { font-size: var(--size); }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(40rem 28rem at 8% -6%, var(--glow-1), transparent 70%),
+    radial-gradient(34rem 26rem at 96% 4%, var(--glow-2), transparent 70%),
+    radial-gradient(30rem 22rem at 60% 110%, var(--glow-3), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--on-surface);
+  font: 1rem/1.55 "Roboto Flex", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+:focus-visible { outline: 4px solid var(--focus); outline-offset: 3px; border-radius: 12px; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 16px; top: 16px; background: var(--surface); padding: .6rem 1.2rem; border-radius: 999px; z-index: 10; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+main { max-width: 960px; margin: 0 auto; padding: 2rem 16px 4rem; }
+h1, h2, h3 { font-stretch: 112%; letter-spacing: -.01em; }
+h1 { font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.05; font-weight: 800; margin: .75rem 0 .75rem; }
+h2 { font-size: 1.45rem; line-height: 1.2; font-weight: 750; margin: 0 0 .35rem; }
+p { margin: 0 0 .75rem; }
+
+.hero { padding: .5rem 0 1.5rem; }
+.live {
+  display: inline-flex; align-items: center; gap: .55rem;
+  font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: .35rem .9rem .35rem .75rem; border-radius: 999px;
+  background: var(--primary-container); color: var(--on-primary-container);
+}
+.live .dot { width: .6rem; height: .6rem; border-radius: 50%; background: currentColor; position: relative; }
+.live.on .dot::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%; background: currentColor;
+  animation: pulse 1.8s ease-out infinite;
+}
+@keyframes pulse { from { transform: scale(1); opacity: .7; } to { transform: scale(3); opacity: 0; } }
+.meta { color: var(--on-surface-variant); font-size: 1.05rem; max-width: 40rem; }
+
+.toolbar {
+  display: flex; flex-wrap: wrap; gap: 1rem 1.75rem; align-items: center;
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+  backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid var(--outline-variant); border-radius: 28px;
+  padding: .85rem 1.1rem; margin-bottom: 2rem; box-shadow: var(--shadow);
+  position: sticky; top: 12px; z-index: 5;
+}
+.group { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.group-label { font-size: .85rem; font-weight: 650; color: var(--on-surface-variant); }
+.seg-group { display: inline-flex; gap: 3px; }
+button {
+  font: inherit; font-size: .9rem; font-weight: 650; cursor: pointer;
+  min-height: 44px; min-width: 44px; padding: .25rem .95rem;
+  color: var(--on-surface); background: var(--surface-high);
+  border: 0; border-radius: 10px;
+  transition: border-radius .25s cubic-bezier(.2,.9,.3,1.2), background-color .2s, color .2s;
+}
+.seg-group button:first-child { border-radius: 22px 10px 10px 22px; }
+.seg-group button:last-child { border-radius: 10px 22px 22px 10px; }
+button:hover { background: color-mix(in srgb, var(--surface-high) 85%, var(--on-surface)); }
+.seg-group button[aria-pressed="true"] { background: var(--primary); color: var(--on-primary); border-radius: 22px; }
+.btn-filled { display: inline-flex; align-items: center; gap: .5rem; background: var(--primary); color: var(--on-primary); border-radius: 22px; padding: .25rem 1.2rem .25rem 1rem; }
+.btn-filled:hover { background: color-mix(in srgb, var(--primary) 88%, var(--on-primary)); border-radius: 14px; }
+.btn-filled svg { width: 1.1rem; height: 1.1rem; }
+.btn-filled.spin svg { animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.switch { display: inline-flex; align-items: center; gap: .65rem; font-size: .9rem; font-weight: 600; cursor: pointer; min-height: 44px; }
+.switch input {
+  appearance: none; -webkit-appearance: none; margin: 0; cursor: pointer;
+  width: 3.25rem; height: 2rem; border-radius: 999px; position: relative; flex: none;
+  background: var(--surface-high); border: 2px solid var(--outline);
+  transition: background-color .2s, border-color .2s;
+}
+.switch input::before {
+  content: ""; position: absolute; top: 50%; left: .3rem; width: 1rem; height: 1rem; border-radius: 50%;
+  background: var(--outline); transform: translateY(-50%);
+  transition: left .25s cubic-bezier(.2,.9,.3,1.2), width .2s, height .2s, background-color .2s;
+}
+.switch input:checked { background: var(--primary); border-color: var(--primary); }
+.switch input:checked::before { left: calc(100% - 1.6rem); width: 1.4rem; height: 1.4rem; background: var(--on-primary); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--outline-variant);
+  border-radius: 32px;
+  padding: clamp(1.1rem, 3.5vw, 1.9rem);
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.ref { animation: rise .5s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i, 0) * 70ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } }
+.card-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .9rem; }
+.chip { display: inline-flex; align-items: center; font-size: .8rem; font-weight: 700; padding: .3rem .85rem; border-radius: 10px; }
+.chip.zakonodajni { background: var(--primary-container); color: var(--on-primary-container); }
+.chip.posvetovalni { background: var(--tertiary-container); color: var(--on-tertiary-container); }
+.leader { display: inline-flex; align-items: center; gap: .4rem; font-size: .85rem; font-weight: 700; padding: .3rem .9rem; border-radius: 999px; }
+.leader.za { background: var(--za-container); color: var(--on-za-container); }
+.leader.proti { background: var(--proti-container); color: var(--on-proti-container); }
+.full-title { color: var(--on-surface-variant); font-size: .9rem; margin-bottom: 1.25rem; }
+
+.scores { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin-bottom: 1rem; }
+.score { border-radius: 24px; padding: .9rem 1.1rem 1rem; background: var(--surface-low); transition: background-color .3s, border-radius .3s; }
+.score.proti { text-align: right; }
+.score.win { border-radius: 32px 12px 12px 32px; }
+.score.proti.win { border-radius: 12px 32px 32px 12px; }
+.score.za.win { background: var(--za-container); color: var(--on-za-container); }
+.score.proti.win { background: var(--proti-container); color: var(--on-proti-container); }
+.score-label { display: flex; align-items: center; gap: .45rem; font-weight: 800; letter-spacing: .06em; font-size: .9rem; }
+.score.proti .score-label { justify-content: flex-end; }
+.score-num { display: block; font-size: clamp(1.6rem, 8vw, 3rem); line-height: 1.05; white-space: nowrap; font-weight: 800; font-stretch: 85%; font-variant-numeric: tabular-nums; letter-spacing: -.02em; margin: .2rem 0; }
+.score-votes { display: block; white-space: nowrap; font-size: .85rem; font-variant-numeric: tabular-nums; opacity: .85; }
+
+.bar-wrap { position: relative; padding: 1.5rem 0 .25rem; margin-bottom: 1rem; }
+.bar { display: flex; gap: 4px; height: 1.5rem; }
+.seg { min-width: 6px; transition: width .8s cubic-bezier(.2,.8,.2,1); }
+.seg.za { background: var(--za); border-radius: 999px 6px 6px 999px; }
+.seg.proti {
+  border-radius: 6px 999px 999px 6px;
+  background: repeating-linear-gradient(135deg, var(--proti) 0 8px, color-mix(in srgb, var(--proti) 78%, #000) 8px 16px);
+}
+.mid { position: absolute; left: 50%; top: 1.2rem; bottom: -.1rem; width: 3px; margin-left: -1.5px; background: var(--on-surface); border-radius: 2px; pointer-events: none; }
+.mid-label { position: absolute; left: 50%; top: 0; transform: translateX(-50%); font-size: .75rem; font-weight: 700; color: var(--on-surface-variant); }
+
+.summary { font-size: 1.05rem; margin: 0 0 1.25rem; }
+.summary b { font-weight: 800; }
+
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .6rem; margin: 0; }
+.fact { display: flex; align-items: center; gap: .9rem; background: var(--surface-low); border-radius: 24px; padding: .8rem 1rem; }
+.ring { width: 3.4rem; height: 3.4rem; flex: none; transform: rotate(-90deg); }
+.ring circle { fill: none; stroke-width: 5; }
+.ring .track { stroke: var(--surface-high); }
+.ring .val { stroke: var(--primary); stroke-linecap: round; transition: stroke-dasharray .8s cubic-bezier(.2,.8,.2,1); }
+dt { font-size: .82rem; font-weight: 650; color: var(--on-surface-variant); }
+dd { margin: 0; font-size: 1.35rem; font-weight: 800; font-stretch: 90%; font-variant-numeric: tabular-nums; line-height: 1.2; }
+dd small { display: block; font-size: .78rem; font-weight: 400; font-stretch: 100%; color: var(--on-surface-variant); }
+.rule { display: flex; gap: .6rem; font-size: .88rem; color: var(--on-surface-variant); margin: 1.1rem 0 0; padding-top: 1rem; border-top: 1px solid var(--outline-variant); }
+.rule svg { width: 1.2rem; height: 1.2rem; flex: none; margin-top: .15rem; fill: currentColor; }
+
+.key { display: inline-block; width: .9rem; height: .9rem; border-radius: 50%; flex: none; }
+.key.za { background: var(--za); }
+.key.proti { background: repeating-linear-gradient(135deg, var(--proti) 0 3px, color-mix(in srgb, var(--proti) 70%, #000) 3px 6px); }
+
+details.help summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  cursor: pointer; list-style: none; font-size: 1.3rem; font-weight: 750; font-stretch: 112%; min-height: 44px;
+}
+details.help summary::-webkit-details-marker { display: none; }
+details.help summary::after {
+  content: "+"; display: grid; place-items: center; flex: none; width: 2.5rem; height: 2.5rem; border-radius: 50%;
+  background: var(--surface-high); font-size: 1.4rem; font-weight: 500; transition: transform .3s cubic-bezier(.2,.9,.3,1.2);
+}
+details.help[open] summary::after { transform: rotate(45deg); }
+.help dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: .6rem; margin: 1.1rem 0 0; }
+.help dl > div { background: var(--surface-low); border-radius: 20px; padding: .9rem 1.1rem; }
+.help dt { display: flex; align-items: center; gap: .5rem; font-size: 1rem; font-weight: 750; color: var(--on-surface); margin-bottom: .25rem; }
+.help dd { font-size: .92rem; font-weight: 400; font-stretch: 100%; line-height: 1.5; color: var(--on-surface-variant); }
+
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .9rem; font-variant-numeric: tabular-nums; }
+caption { text-align: left; font-weight: 750; font-size: 1.3rem; font-stretch: 112%; padding-bottom: .9rem; }
+th, td { padding: .7rem .6rem; text-align: right; white-space: nowrap; }
+thead th { font-size: .78rem; font-weight: 700; color: var(--on-surface-variant); background: var(--surface-low); }
+thead th:first-child { border-radius: 14px 0 0 14px; }
+thead th:last-child { border-radius: 0 14px 14px 0; }
+tbody tr + tr > * { border-top: 1px solid var(--outline-variant); }
+th:first-child, td:first-child { text-align: left; white-space: normal; min-width: 12rem; }
+
+.err { display: block; color: var(--on-proti-container); background: var(--proti-container); border-radius: 20px; padding: 1rem 1.2rem; }
+
+@media (max-width: 560px) {
+  .toolbar { position: static; }
+  .scores { gap: .4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#results">Skoči na rezultate</a>
+<main>
+  <header class="hero">
+    <span class="live" id="live-chip"><span class="dot" aria-hidden="true"></span><span id="live-text">Nalagam</span></span>
+    <h1 id="title">Referendumi</h1>
+    <p class="meta" id="meta">Nalagam podatke …</p>
+    <p id="live" class="sr-only" aria-live="polite"></p>
+  </header>
+
+  <div class="toolbar" role="group" aria-label="Nastavitve prikaza">
+    <div class="group">
+      <span class="group-label">Velikost črk</span>
+      <div class="seg-group">
+        <button type="button" data-size="18" aria-label="Manjše črke">A−</button>
+        <button type="button" data-size="20" aria-label="Običajne črke">A</button>
+        <button type="button" data-size="24" aria-label="Večje črke">A+</button>
+        <button type="button" data-size="28" aria-label="Največje črke">A++</button>
+      </div>
+    </div>
+    <div class="group">
+      <span class="group-label">Barve</span>
+      <div class="seg-group">
+        <button type="button" data-theme-btn="">Samodejno</button>
+        <button type="button" data-theme-btn="light">Svetlo</button>
+        <button type="button" data-theme-btn="dark">Temno</button>
+      </div>
+    </div>
+    <div class="group">
+      <button type="button" class="btn-filled" id="refresh">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.65 6.35A7.96 7.96 0 0 0 12 4a8 8 0 1 0 7.73 10h-2.08A6 6 0 1 1 12 6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"/></svg>
+        Osveži zdaj
+      </button>
+      <label class="switch"><input type="checkbox" role="switch" id="auto" checked> Samodejno vsako minuto</label>
+    </div>
+  </div>
+
+  <section id="results" aria-label="Rezultati"></section>
+
+  <details class="card help">
+    <summary>Kako brati rezultate</summary>
+    <dl>
+      <div>
+        <dt><span class="key za" aria-hidden="true"></span>ZA (modra, polna barva)</dt>
+        <dd>Glasovi volivcev, ki so podprli predlog oziroma zakon.</dd>
+      </div>
+      <div>
+        <dt><span class="key proti" aria-hidden="true"></span>PROTI (oranžna, s črtami)</dt>
+        <dd>Glasovi volivcev, ki so predlog oziroma zakon zavrnili.</dd>
+      </div>
+      <div>
+        <dt>Navpična črta na sredini (50 %)</dt>
+        <dd>Polovica glasov. Stran, katere stolpec sega čez to črto, trenutno vodi.</dd>
+      </div>
+      <div>
+        <dt>Preštetih glasovnic</dt>
+        <dd>Koliko glasovnic je bilo do zdaj preštetih. Dokler ni 100 %, se rezultat še lahko spremeni.</dd>
+      </div>
+      <div>
+        <dt>Udeležba</dt>
+        <dd>Kolikšen delež vseh volilnih upravičencev je prišel glasovat.</dd>
+      </div>
+      <div>
+        <dt>Zakonodajni referendum</dt>
+        <dd>Volivci odločajo o že sprejetem zakonu. Zakon je zavrnjen samo, če je večina glasovala PROTI <b>in</b> je PROTI glasovala vsaj petina (20 %) vseh volilnih upravičencev. Rezultat je zavezujoč.</dd>
+      </div>
+      <div>
+        <dt>Posvetovalni referendum</dt>
+        <dd>Volivci povedo svoje mnenje o vprašanju. Rezultat ni zavezujoč, je pa usmeritev za državni zbor.</dd>
+      </div>
+    </dl>
+  </details>
+
+  <section class="card">
+    <div class="table-scroll">
+      <table id="table"></table>
+    </div>
+  </section>
+</main>
+<script>
+const API = 'https://api.rtvslo.si/preslikave/elections?client_id=8c5205a95060a482f0fc96b9162d9e3f&electionCacheKey=referendumi_11102026%3Ainfo';
+const SOURCE = location.hostname === 'localhost' ? `${API}&` : 'data.json?';
+const REFRESH_MS = 60000;
+
+const TYPE_RULES = {
+  zakonodajni: 'Zavezujoč rezultat. Zakon pade samo, če zmaga PROTI in proti glasuje vsaj petina vseh volilnih upravičencev.',
+  posvetovalni: 'Nezavezujoč rezultat. Pove mnenje volivcev, odločitev ostane državnemu zboru.',
+};
+const INFO_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2zm0-8h-2V7h2z"/></svg>';
+
+const pct = (v, d = 1) => (v * 100).toLocaleString('sl-SI', { minimumFractionDigits: d, maximumFractionDigits: d }) + '\u00a0%';
+const num = v => v.toLocaleString('sl-SI');
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const store = {
+  get: k => { try { return localStorage.getItem(k); } catch { return null; } },
+  set: (k, v) => { try { localStorage.setItem(k, v); } catch {} },
+};
+
+function setSize(px) {
+  document.documentElement.style.setProperty('--size', px + 'px');
+  document.querySelectorAll('[data-size]').forEach(b => b.setAttribute('aria-pressed', b.dataset.size === String(px)));
+  store.set('size', px);
+}
+function setTheme(t) {
+  if (t) document.documentElement.dataset.theme = t; else delete document.documentElement.dataset.theme;
+  document.querySelectorAll('[data-theme-btn]').forEach(b => b.setAttribute('aria-pressed', b.dataset.themeBtn === t));
+  store.set('theme', t);
+}
+document.querySelectorAll('[data-size]').forEach(b => b.addEventListener('click', () => setSize(b.dataset.size)));
+document.querySelectorAll('[data-theme-btn]').forEach(b => b.addEventListener('click', () => setTheme(b.dataset.themeBtn)));
+setSize(store.get('size') || 20);
+setTheme(store.get('theme') || '');
+
+function summary(r) {
+  const { za, proti } = r.rezultat;
+  const zaLeads = za.gl >= proti.gl;
+  const leader = zaLeads ? 'ZA' : 'PROTI';
+  const diff = Math.abs(za.gl - proti.gl);
+  const done = r.prestetih_glasov >= 0.999;
+  const verb = done ? 'Zmagal je' : 'Trenutno vodi';
+  const tail = done ? 'Vse glasovnice so preštete.' : `Preštetih je ${pct(r.prestetih_glasov)} glasovnic, zato se rezultat še lahko spremeni.`;
+  return {
+    side: zaLeads ? 'za' : 'proti',
+    badge: `${done ? 'Zmagal' : 'Vodi'} ${leader}`,
+    text: `${verb} <b>${leader}</b> s ${pct(zaLeads ? za.prc : proti.prc)} glasov. Razlika je ${num(diff)} glasov. ${tail}`,
+  };
+}
+
+const ring = v => `<svg class="ring" viewBox="0 0 40 40" aria-hidden="true">
+  <circle class="track" cx="20" cy="20" r="16" pathLength="100"/>
+  <circle class="val" cx="20" cy="20" r="16" pathLength="100" stroke-dasharray="${Math.max(0, Math.min(100, v * 100))} 100"/>
+</svg>`;
+
+function card(r, i) {
+  const { za, proti } = r.rezultat;
+  const s = summary(r);
+  const id = 'ref-' + esc(r.slug);
+  return `
+    <article class="card ref" style="--i:${i}" aria-labelledby="${id}">
+      <div class="card-head">
+        <span class="chip ${esc(r.type)}">${esc(r.typeLabel)}</span>
+        <span class="leader ${s.side}"><span class="key ${s.side}" aria-hidden="true"></span>${s.badge}</span>
+      </div>
+      <h2 id="${id}">${esc(r.shortTitle)}</h2>
+      <p class="full-title">${esc(r.title)}</p>
+      <div class="scores">
+        <div class="score za${s.side === 'za' ? ' win' : ''}">
+          <span class="score-label"><span class="key za" aria-hidden="true"></span>ZA</span>
+          <span class="score-num">${pct(za.prc)}</span>
+          <span class="score-votes">${num(za.gl)} glasov</span>
+        </div>
+        <div class="score proti${s.side === 'proti' ? ' win' : ''}">
+          <span class="score-label">PROTI<span class="key proti" aria-hidden="true"></span></span>
+          <span class="score-num">${pct(proti.prc)}</span>
+          <span class="score-votes">${num(proti.gl)} glasov</span>
+        </div>
+      </div>
+      <div class="bar-wrap" aria-hidden="true">
+        <span class="mid-label">50 %</span>
+        <div class="bar">
+          <div class="seg za" style="width:${za.prc * 100}%"></div>
+          <div class="seg proti" style="width:${proti.prc * 100}%"></div>
+        </div>
+        <div class="mid"></div>
+      </div>
+      <p class="summary">${s.text}</p>
+      <dl class="facts">
+        <div class="fact">
+          ${ring(r.prestetih_glasov)}
+          <div><dt>Preštetih glasovnic</dt><dd>${pct(r.prestetih_glasov)}</dd></div>
+        </div>
+        <div class="fact">
+          ${ring(r.prc)}
+          <div><dt>Udeležba</dt><dd>${pct(r.prc, 2)}<small>delež volivcev, ki so glasovali</small></dd></div>
+        </div>
+      </dl>
+      <p class="rule">${INFO_ICON}<span>${esc(TYPE_RULES[r.type] || '')}</span></p>
+    </article>`;
+}
+
+let lastStamp = null;
+
+function render(data) {
+  document.getElementById('title').textContent = data.title;
+  document.title = data.title;
+  const fetched = String(data.importedAt).slice(11, 16);
+  document.getElementById('meta').textContent =
+    `${data.pollsClosed ? 'Volišča so zaprta, poteka štetje.' : 'Volišča so še odprta.'} Podatki RTV Slovenija, zadnja posodobitev ob ${fetched}.`;
+  const allDone = data.referendumi.every(r => r.prestetih_glasov >= 0.999);
+  document.getElementById('live-chip').classList.toggle('on', !allDone);
+  document.getElementById('live-text').textContent = allDone ? 'Končni rezultati' : 'V živo';
+
+  if (data.importedAt === lastStamp) return;
+  const first = lastStamp === null;
+  lastStamp = data.importedAt;
+
+  document.getElementById('results').innerHTML = data.referendumi.map(card).join('');
+  if (!first) document.querySelectorAll('.ref').forEach(el => { el.style.animation = 'none'; });
+
+  document.getElementById('table').innerHTML =
+    '<caption>Vsi rezultati v tabeli</caption>' +
+    '<thead><tr><th scope="col">Referendum</th><th scope="col">ZA glasov</th><th scope="col">PROTI glasov</th><th scope="col">ZA %</th><th scope="col">PROTI %</th><th scope="col">Udeležba</th><th scope="col">Preštetih</th></tr></thead><tbody>' +
+    data.referendumi.map(r => `<tr>
+      <th scope="row">${esc(r.shortTitle)}</th>
+      <td>${num(r.rezultat.za.gl)}</td><td>${num(r.rezultat.proti.gl)}</td>
+      <td>${pct(r.rezultat.za.prc, 2)}</td><td>${pct(r.rezultat.proti.prc, 2)}</td>
+      <td>${pct(r.prc, 2)}</td><td>${pct(r.prestetih_glasov)}</td>
+    </tr>`).join('') + '</tbody>';
+
+  if (!first) document.getElementById('live').textContent = `Rezultati posodobljeni ob ${fetched}.`;
+}
+
+const refreshBtn = document.getElementById('refresh');
+async function load() {
+  refreshBtn.classList.add('spin');
+  try {
+    const res = await fetch(`${SOURCE}_=${Date.now()}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    render((await res.json()).response);
+  } catch (e) {
+    document.getElementById('meta').innerHTML =
+      `<span class="err" role="alert">Napaka pri nalaganju: ${esc(e.message)}. Poskusi znova čez minuto.</span>`;
+  } finally {
+    refreshBtn.classList.remove('spin');
+  }
+}
+
+let timer = null;
+function schedule() {
+  clearInterval(timer);
+  if (document.getElementById('auto').checked) timer = setInterval(load, REFRESH_MS);
+}
+refreshBtn.addEventListener('click', load);
+document.getElementById('auto').addEventListener('change', schedule);
+
+load();
+schedule();
+</script>
+</body>
+</html>

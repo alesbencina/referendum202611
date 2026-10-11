@@ -1,0 +1,30 @@
+name: Refresh data
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch results
+        run: |
+          curl -fsS --retry 3 'https://api.rtvslo.si/preslikave/elections?client_id=8c5205a95060a482f0fc96b9162d9e3f&electionCacheKey=referendumi_11102026%3Ainfo' -o new.json
+          jq -e '.response.referendumi | length > 0' new.json > /dev/null
+          mv new.json data.json
+      - name: Commit if changed
+        run: |
+          git add data.json
+          git diff --cached --quiet && exit 0
+          git -c user.name='github-actions[bot]' -c user.email='41898299+github-actions[bot]@users.noreply.github.com' commit -m 'Update results data'
+          git push
